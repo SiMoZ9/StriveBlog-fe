@@ -8,7 +8,7 @@ const Logout = () => {
     const token = JSON.parse(localStorage.getItem('loggedInUser'))
 
     if (token) {
-        localStorage.removeItem('loggedInUser')
+        localStorage.clear()
     }
 
     return (

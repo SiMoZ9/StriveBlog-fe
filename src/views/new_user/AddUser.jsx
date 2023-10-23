@@ -8,8 +8,6 @@ import React, {useState} from "react";
 * 2 - fetch
 *
 * */
-
-
 const AddUser = () => {
 
     const [formData, setFormData] = useState({})
@@ -27,7 +25,7 @@ const AddUser = () => {
         e.preventDefault()
 
         try {
-            const res = await fetch(`${process.env.REACT_APP_URL}/authors/create`, {
+            const res = await fetch(`${process.env.REACT_APP_ENDPOINT_URL}/authors/create`, {
                 headers: {
                   'Content-Type': 'application/json'
                 },

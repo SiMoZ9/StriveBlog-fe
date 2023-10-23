@@ -21,7 +21,7 @@ const BlogList = props => {
     setIsLoading(true)
     const token = localStorage.getItem('loggedInUser')
     try {
-      const res = await fetch(`http://localhost:5050/blogPosts?page=${currentPage}`, {
+      const res = await fetch(`${process.env.REACT_APP_ENDPOINT_URL}/blogPosts?page=${currentPage}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': JSON.parse(token)

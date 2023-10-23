@@ -29,7 +29,7 @@ const NewBlogPost = props => {
      fileData.append('cover', cover)
 
      try {
-       const response = await fetch('http://localhost:5050/blogPosts/upload', {
+       const response = await fetch(`${process.env.REACT_APP_ENDPOINT_URL}/blogPosts/upload`, {
          method: "POST",
          body: fileData
        })
@@ -52,7 +52,7 @@ const NewBlogPost = props => {
         }
 
         setLoading(true)
-        await fetch('http://localhost:5050/blogPosts', {
+        await fetch(`${process.env.REACT_APP_ENDPOINT_URL}/blogPosts`, {
           method: 'POST',
           headers: {
             "Content-Type": "application/json",

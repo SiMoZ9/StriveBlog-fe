@@ -33,7 +33,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const postData = await fetch(`${process.env.REACT_APP_URL}/login`, {
+            const postData = await fetch(`${process.env.REACT_APP_ENDPOINT_URL}/login`, {
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -54,7 +54,7 @@ const Login = () => {
     }
 
     const handleGithubLogin = () => {
-        window.location.href = 'http://localhost:5050/auth/github'
+        window.location.href = `${process.env.REACT_APP_ENDPOINT_URL}/auth/github`
     }
 
     return (
