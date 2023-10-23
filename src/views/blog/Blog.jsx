@@ -7,16 +7,33 @@ import posts from "../../data/posts.json";
 import "./styles.css";
 import {useFetch} from "../../hooks/useFetch";
 import MainLayout from "../../layout/MainLayout";
+import useSession from "../../hooks/useSession";
 const Blog = props => {
   const [blog, setBlog] = useState({});
   const [loading, setLoading] = useState(true);
   const params = useParams();
   const navigate = useNavigate();
+  const session = useSession()
+
+  console.log(params)
+  const fetchBlog = async (id) => {
+    try {
+      const res = await fetch(`${process.env.REACT_APP_ENDPOINT_URL}/blogPost/${id}`)
+      const data = await res.json()
+
+      console.log(data)
+
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   useEffect(() => {
 
 
     const { id } = params;
-    const blog = posts.find(post => post._id.toString() === id);
+
+    fetchBlog(id)
 
     if (blog) {
       setBlog(blog);
@@ -42,7 +59,6 @@ const Blog = props => {
               </div>
               <div className="blog-details-info">
                 <div>{blog.createdAt}</div>
-                <div>{`lettura da ${blog.readTime.value} ${blog.readTime.unit}`}</div>
                 <div
                   style={{
                     marginTop: 20,

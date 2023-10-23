@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Form, Button, Container} from 'react-bootstrap'
 import "./styles.css"
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import NavLog from "./NavLog";
 import Footer from "../../components/footer/Footer";
 import {isAuth} from "../../middlewares/ProtectedRoutes";
@@ -72,6 +72,7 @@ const Login = () => {
                 <Form.Control type="password" placeholder="Inserisci password" name="password" onChange={handleInputChange} />
             </Form.Group>
 
+
             <Button style={{backgroundColor: "#00d66f", border: "0px"}} type="submit">
                 Submit
             </Button>
@@ -79,6 +80,12 @@ const Login = () => {
             <Button style={{backgroundColor: "#00d66f", border: "0px"}} className="mt-3" onClick={() => handleGithubLogin()}>
                 Signin with GitHub
             </Button>
+
+            <Link to="/signup">
+            <Button style={{backgroundColor: "#00d66f", border: "0px"}} className="mt-3">
+                Signup
+            </Button>
+            </Link>
         </Form>
         </Container>
             <Footer/>

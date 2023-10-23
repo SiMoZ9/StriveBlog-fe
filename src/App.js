@@ -6,9 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./views/login/Login";
 import Logout from "./views/Logout";
 import ProtectedRoutes from "./middlewares/ProtectedRoutes";
-import MainLayout from "./layout/MainLayout";
 import AddUser from "./views/new_user/AddUser";
 import Success from "./views/success/Success";
+import Me from "./views/me/Me"
 function App() {
   return (
     <BrowserRouter>
@@ -17,11 +17,11 @@ function App() {
           <Route path="/signup" element={<AddUser/>} />
 
           <Route element={<ProtectedRoutes />} />
-              <Route path="/blog/:id" element={<Blog />} />
+              <Route path="/blogPost/:id" element={<Blog />} />
               <Route path="/home" element={<Home />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/new" element={<NewBlogPost />} />
-
+                <Route path="/me" element={<Me />} />
               <Route path="/success/:token" element={<Success />} />
           <Route/>
       </Routes>
