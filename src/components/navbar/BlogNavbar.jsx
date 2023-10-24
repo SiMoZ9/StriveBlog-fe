@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./styles.css";
 const NavBar = props => {
+  const {avatar} = props
+
   return (
     <Navbar expand="lg" className="blog-navbar">
       <Container className="justify-content-between">
@@ -29,6 +31,16 @@ const NavBar = props => {
             </svg>
             Nuovo Articolo
           </Button>
+
+          <Link to='/me'>
+          <img
+              src="https://iconape.com/wp-content/png_logo_vector/avatar-10.png"
+              className="rounded-circle"
+              height="100"
+              alt="Avatar"
+              loading="lazy"
+          />
+          </Link>
         </div>
 
       </Container>
